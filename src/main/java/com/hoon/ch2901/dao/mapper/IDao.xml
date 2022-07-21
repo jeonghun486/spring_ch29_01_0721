@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD Mapper 3.0/EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.hoon.ch2901.dao.IDao">
+	<select id="listDao" resultType="com.hoon.ch2901.dto.ContentDto">
+		select * from simple_board order by mid desc
+	</select>
+	
+	<insert id="writeDao" >
+		insert into simple_board (mid, mwriter, mcontent) values(simple_board_seq.nextval,#{param1},#{param2})
+	</insert>
+	
+	<delete id="deleteDao">
+		delete from simple_board where mid = #{mid}
+	</delete>
+	
+</mapper>
